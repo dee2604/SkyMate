@@ -19,14 +19,14 @@ object NetworkBuilder {
         }
         .build()
 
-    val meteoApiService by lazy {
+    val meteoApiService: MeteoApiService by lazy {
         Retrofit.Builder().baseUrl("https://api.open-meteo.com/").addConverterFactory(
             GsonConverterFactory.create()
         ).client(okHttpClient).build().create(MeteoApiService::class.java)
 
     }
 
-    val geminiApiService by lazy {
+    val geminiApiService: OpenAiService by lazy {
         Retrofit.Builder().baseUrl("https://api.openai.com/")
             .addConverterFactory(
                 GsonConverterFactory.create()
